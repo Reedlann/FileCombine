@@ -88,25 +88,5 @@ namespace FileCombine
 
             btnAnalyze_Click(sender, e);
         }
-
-        private void lblSetRenamePattern_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void combBxPrefix_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void combBxConnector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void combBxGPart_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

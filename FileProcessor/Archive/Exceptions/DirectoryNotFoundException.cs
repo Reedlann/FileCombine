@@ -8,7 +8,8 @@ namespace FileProcessor.Archive.Exceptions
 {
     public class DirectoryNotFoundException : ArchiverException
     {
-        public DirectoryNotFoundException(string? message, Exception? innerException = null) : base(message, innerException)
+        public DirectoryNotFoundException(string? message, Exception? innerException = null) 
+            : base(message, innerException)
         { }
     }
 }

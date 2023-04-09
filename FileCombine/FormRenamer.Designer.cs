@@ -181,7 +181,6 @@
             this.lblSetRenamePattern.Size = new System.Drawing.Size(111, 14);
             this.lblSetRenamePattern.TabIndex = 17;
             this.lblSetRenamePattern.Text = "Set Rename Pattern";
-            this.lblSetRenamePattern.Click += new System.EventHandler(this.lblSetRenamePattern_Click);
             // 
             // combBxPrefix
             // 
@@ -197,7 +196,6 @@
             this.combBxPrefix.Name = "combBxPrefix";
             this.combBxPrefix.Size = new System.Drawing.Size(144, 22);
             this.combBxPrefix.TabIndex = 18;
-            this.combBxPrefix.SelectedIndexChanged += new System.EventHandler(this.combBxPrefix_SelectedIndexChanged);
             // 
             // combBxConnector
             // 
@@ -213,7 +211,6 @@
             this.combBxConnector.Name = "combBxConnector";
             this.combBxConnector.Size = new System.Drawing.Size(45, 22);
             this.combBxConnector.TabIndex = 19;
-            this.combBxConnector.SelectedIndexChanged += new System.EventHandler(this.combBxConnector_SelectedIndexChanged);
             // 
             // combBxGPart
             // 
@@ -227,13 +224,12 @@
             this.combBxGPart.Name = "combBxGPart";
             this.combBxGPart.Size = new System.Drawing.Size(140, 22);
             this.combBxGPart.TabIndex = 20;
-            this.combBxGPart.SelectedIndexChanged += new System.EventHandler(this.combBxGPart_SelectedIndexChanged);
             // 
             // FormRenamer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(906, 419);
             this.Controls.Add(this.combBxGPart);
             this.Controls.Add(this.combBxConnector);

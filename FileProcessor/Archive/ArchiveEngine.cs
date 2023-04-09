@@ -9,7 +9,7 @@ namespace FileProcessor.Archive
 {
     public class ArchiveEngine
     {
-        private ICompressor? Compressor { get; set; }
+        private ICompressor Compressor { get; set; }
 
         private void SetCompressor(ArchiveEngineMode mode)
         {
@@ -29,24 +29,15 @@ namespace FileProcessor.Archive
         {
             SetCompressor(mode);
         }
-        public string CompressDirectory(string path, string destinationPath = "")
+        public void CompressDirectory(string path, string destinationPath = "")
         {
             if (!Directory.Exists(path))
                 throw new Exceptions.DirectoryNotFoundException($"Directory {path} not found");
 
             if (destinationPath == string.Empty)
-            {
+                destinationPath = path;
 
-            }
-
-            if (Directory.Exists(destinationPath))
-                throw new FileAlreadyExistsException($"File {destinationPath} already exists");
-
-
-
-            //Compressor.Compress(path, )
-
-            return string.Empty; // TODO
+            Compressor.Compress(path, destinationPath);
         }
     }
 }

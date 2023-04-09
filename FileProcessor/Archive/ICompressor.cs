@@ -8,7 +8,7 @@ namespace FileProcessor.Archive
 {
     internal interface ICompressor
     {
-        public string Compress(string target, string destination);
-        public void Decompress();
+        public void Compress(string target, string destination);
+        public void Decompress(string zipPath, string extractPath);
     }
 }

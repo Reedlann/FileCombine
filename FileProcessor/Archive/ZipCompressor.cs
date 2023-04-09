@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO.Compression;
 
 namespace FileProcessor.Archive
 {
     internal class ZipCompressor : ICompressor
     {
-        public string Compress(string path, string destination)
+        public void Compress(string path, string destination)
         {
-            throw new NotImplementedException();
+            ZipFile.CreateFromDirectory(path, destination);
         }
 
-        public void Decompress()
+        public void Decompress(string zipPath, string extractPath)
         {
-            throw new NotImplementedException();
+            ZipFile.ExtractToDirectory(zipPath, extractPath);
         }
     }
 }
