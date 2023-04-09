@@ -32,6 +32,9 @@ namespace FileProcessor
         {
             List<FileInfo> result = new List<FileInfo>();
 
+            if (fileMasks.Length == 1 && fileMasks[0] == string.Empty)
+                fileMasks[0] = "*";
+
             string pattern = PrepareFilePatterns(fileMasks);
 
             Regex regex = new Regex(pattern);

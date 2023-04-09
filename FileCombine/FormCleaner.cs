@@ -45,9 +45,9 @@ namespace FileCombine
                 if (cbxDir.Checked && cbxFile.Checked)
                     finder.FindAll(rootPath);
                 else if (cbxDir.Checked && !cbxFile.Checked)
-                    finder.FindDirectories(rootPath);
+                    finder.FindDirectoriesRecursive(rootPath);
                 else if (!cbxDir.Checked && cbxFile.Checked)
-                    finder.FindFiles(rootPath);
+                    finder.FindFilesRecursive(rootPath);
             }
             catch (Exception)
             {
@@ -74,7 +74,7 @@ namespace FileCombine
                 item.SubItems[0].Text = f.Name;
                 item.Tag = new FileInfo(f.FullName);
                 item.SubItems.Add(f.LastWriteTime.ToString());
-                item.SubItems.Add((f.Length / 1024).ToString() + " Mb");
+                item.SubItems.Add((f.Length / 1024).ToString() + " Kb");
                 item.ImageIndex = 1;
 
                 lViewAnalyzedItem.Items.Add(item);
@@ -82,7 +82,7 @@ namespace FileCombine
             }
 
             lblCount.Text = $"Count: {lViewAnalyzedItem.Items.Count}";
-            lblSize.Text = $"All size: {size / 1024} Mb";
+            lblSize.Text = $"All size: {size / 1024} Kb";
 
             btnClear.Enabled = true;
             cbxRecycleBin.Enabled = true;

@@ -19,7 +19,7 @@ namespace FileProcessor
             regexFileAnalyzer = new RegexFileAnalyzer();
         }
 
-        public void FindDirectories(string rootPath)
+        public void FindDirectoriesRecursive(string rootPath)
         {
             DirectoryInfo dir = new DirectoryInfo(rootPath);
 
@@ -30,11 +30,11 @@ namespace FileProcessor
                 if (DirMasks.Contains(d.Name))
                     Container.Dirs.Add(d);
                 else
-                    FindDirectories(d.FullName);
+                    FindDirectoriesRecursive(d.FullName);
             }
         }
 
-        public void FindFiles(string rootPath)
+        public void FindFilesRecursive(string rootPath)
         {
             DirectoryInfo dir = new DirectoryInfo(rootPath);
 
@@ -44,7 +44,16 @@ namespace FileProcessor
             Container.Files.AddRange(regexFileAnalyzer.AnalyzeFiles(NestedFiles, FileMasks));
 
             foreach (DirectoryInfo d in NestedDirs)
-                FindFiles(d.FullName);
+                FindFilesRecursive(d.FullName);
+        }
+
+        public void FindFiles(string rootPath)
+        {
+            DirectoryInfo dir = new DirectoryInfo(rootPath);
+
+            FileInfo[] NestedFiles = dir.GetFiles();
+
+            Container.Files.AddRange(regexFileAnalyzer.AnalyzeFiles(NestedFiles, FileMasks));
         }
 
         public void FindAll(string rootPath)
